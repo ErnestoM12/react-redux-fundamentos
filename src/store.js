@@ -18,37 +18,27 @@ function counter(state = initialState, action) {
     }
 
 }
-//Store
-//Almacenamiento de nuestro estado
-const store = createStore(counter)
 
 //cuando el estado del store se actulize se va ejecutar esta funcón 
-store.subscribe(() => {
-    console.log(store.getState());
-})
+// store.subscribe(() => {
+//     console.log(store.getState());
+// })
 
-//creadoer de acciones
-const increment = () => {
+// //creadoer de acciones
+export const increment = () => {
     return {
         type: INCREMENT
     }
 
 }
-
-const deincrement = () => {
+export const decrement = () => {
     return {
         type: DECREMENT
     }
-
 }
-
-
 ///////////actions//////////
-store.dispatch(increment())
-store.dispatch(increment())
-store.dispatch(increment())
-store.dispatch(deincrement())
-
+// store.dispatch(increment())
+// store.dispatch(deincrement())
 // store.dispatch({
 //     type: INCREMENT
 // })
@@ -61,7 +51,9 @@ store.dispatch(deincrement())
 
 // }, 3000)
 
-
+//Store
+//Almacenamiento de nuestro estado
+const store = createStore(counter)
 
 export default store
 
