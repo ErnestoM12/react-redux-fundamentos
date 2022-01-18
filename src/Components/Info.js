@@ -1,29 +1,37 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { } from '../redux/store'
+import { updateName } from '../redux/actions/userActions'
 
 
-const Info = ({ counter, name }) => {
+const Info = ({ user, updateNameAction }) => {
+
+    const handlerName = (e) => {
+        const name = e.target.value
+        updateName(name)
+    }
+
     return (
         <div>
-            <h2>{name} - {counter} </h2>
+            <h2>{user.name} - {user.country} </h2>
+
+            <input type="text" onChange={handlerName} />
+
+
         </div>
     )
 }
 //conectar component con el store
-const mapStateToProps = ({ counter, user }) => {
+const mapStateToProps = ({ user }) => {
 
     return {
-        counter,
-        name: user.name
+        user
     }
 }
-/*esto pasa a la funciones a las props de componente 
+/*esto pasa las funciones a las props de componente ,
 pasandoselo como segundo argumento al connect*/
 const mapDispatchToProps = (dispatch) => {
     return {
-
-
+        updateName: (name) => dispatch(updateName(name))
     }
 }
 
