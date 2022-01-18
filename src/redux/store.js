@@ -1,15 +1,16 @@
 import { createStore, applyMiddleware } from 'redux'
+import logger from 'redux-logger'
 import rootReducer from './reducers'
 
 //Middlewares
 
-const logger = (store) => (next) => (action) => {
-    next(action)
-    console.log('ah ocurrido una nueva accion', action)
-    /*tambien se podria madar otra accion con dispatch*/
-    //store.dispatch()
-    //validar cualquier otra cosa
-}
+// const logger = (store) => (next) => (action) => {
+//     next(action)
+//     console.log('ah ocurrido una nueva accion', action)
+//     /*tambien se podria madar otra accion con dispatch*/
+//     //store.dispatch()
+//     //validar cualquier otra cosa
+// }
 const confirmDeleteTodo = (store) => (next) => (action) => {
 
     if (action.type === 'DELETE_TODO') {
