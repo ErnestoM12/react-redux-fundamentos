@@ -21,8 +21,8 @@ function todo(state = initialState, action) {
       return {
         ...state,
         todos: [
-          action.payload,
-          ...state.todos
+          action.payload, //agrego en la primera posicion de la lista
+          ...state.todos //todos los demas todos
         ]
       }
 
