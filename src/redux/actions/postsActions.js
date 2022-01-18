@@ -18,9 +18,12 @@ export const fetchPosts = () => async (dispatch) => {
       }
     })
   } catch (error) {
+
     dispatch({
       type: FETCH_POSTS_ERROR,
-      error: error.toString()
+      payload: {
+        error: error.toString()
+      }
     })
 
   }
