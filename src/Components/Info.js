@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { updateName } from '../redux/actions/userActions'
 
 
-const Info = ({ user, updateNameAction }) => {
+const Info = ({ user, updateName }) => {
 
     const handlerName = (e) => {
         const name = e.target.value
