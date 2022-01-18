@@ -1,16 +1,10 @@
 import { createStore, applyMiddleware } from 'redux'
-import logger from 'redux-logger'
+//import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 import rootReducer from './reducers'
 
 //Middlewares
 
-// const logger = (store) => (next) => (action) => {
-//     next(action)
-//     console.log('ah ocurrido una nueva accion', action)
-//     /*tambien se podria madar otra accion con dispatch*/
-//     //store.dispatch()
-//     //validar cualquier otra cosa
-// }
 const confirmDeleteTodo = (store) => (next) => (action) => {
 
     if (action.type === 'DELETE_TODO') {
@@ -25,14 +19,13 @@ const confirmDeleteTodo = (store) => (next) => (action) => {
 
 }
 
-
-
-
-//Store
+/////Store/////
 //Almacenamiento de nuestro estado
 const store = createStore(rootReducer,
-    applyMiddleware(confirmDeleteTodo, logger))
-
+    applyMiddleware(
+        confirmDeleteTodo,
+        /*logger,*/
+        thunk))
 export default store
 
 
